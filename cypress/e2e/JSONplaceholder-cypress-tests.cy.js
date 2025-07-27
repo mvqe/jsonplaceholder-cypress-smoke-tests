@@ -1,5 +1,5 @@
-describe("JSONPlaceholder Smoke Tests", () => {
-  it("Lista todos os posts", () => {
+describe("JSONPlaceholder API Smoke Tests", () => {
+  it("List all posts", () => {
     cy.api("GET", "/posts").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -9,7 +9,7 @@ describe("JSONPlaceholder Smoke Tests", () => {
     });
   });
 
-  it("Retorna um post específico", () => {
+  it("Returns a specific post", () => {
     cy.api("GET", "/posts/1").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -22,7 +22,7 @@ describe("JSONPlaceholder Smoke Tests", () => {
     });
   });
 
-  it("Comentários de um post específico.", () => {
+  it("Comments on a specific post.", () => {
     cy.api("GET", "/posts/1/comments").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -35,7 +35,7 @@ describe("JSONPlaceholder Smoke Tests", () => {
     });
   });
 
-  it("Lista todos os comentários", () => {
+  it("List all comments", () => {
     cy.api("GET", "/comments").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -46,7 +46,7 @@ describe("JSONPlaceholder Smoke Tests", () => {
     });
   });
 
-  it("Retorna um comentário específico", () => {
+  it("Returns a specific comment", () => {
     cy.api("GET", "/comments/1").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -60,20 +60,20 @@ describe("JSONPlaceholder Smoke Tests", () => {
     });
   });
 
-  it("Lista todos os álbuns", () => {
+  it("List all albums", () => {
     cy.api("GET", "/albums/").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
       expect(response.body).to.not.be.null;
       expect(response.body).to.be.an("array");
       expect(response.body).to.have.length.above(1);
-      expect(response.body[50]).to.have.property("userId");
-      expect(response.body[50]).to.have.property("id");
-      expect(response.body[50]).to.have.property("title");
+      expect(response.body[0]).to.have.property("userId");
+      expect(response.body[0]).to.have.property("id");
+      expect(response.body[0]).to.have.property("title");
     });
   });
 
-  it("Retorna um álbum específico", () => {
+  it("Returns a specific album", () => {
     cy.api("GET", "/albums/1").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -85,37 +85,37 @@ describe("JSONPlaceholder Smoke Tests", () => {
     });
   });
 
-  it("Fotos de um álbum específico", () => {
+  it("Photos from a specific album", () => {
     cy.api("GET", "/albums/1/photos").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
       expect(response.body).to.not.be.null;
       expect(response.body).to.be.an("array");
       expect(response.body).to.have.length.above(1);
-      expect(response.body[40]).to.have.property("albumId");
-      expect(response.body[40]).to.have.property("id");
-      expect(response.body[40]).to.have.property("title");
-      expect(response.body[40]).to.have.property("url");
-      expect(response.body[40]).to.have.property("thumbnailUrl");
+      expect(response.body[0]).to.have.property("albumId");
+      expect(response.body[0]).to.have.property("id");
+      expect(response.body[0]).to.have.property("title");
+      expect(response.body[0]).to.have.property("url");
+      expect(response.body[0]).to.have.property("thumbnailUrl");
     });
   });
 
-  it("Lista todas as fotos", () => {
+  it("List all photos", () => {
     cy.api("GET", "/photos").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
       expect(response.body).to.not.be.null;
       expect(response.body).to.be.an("array");
       expect(response.body).to.have.length.above(1);
-      expect(response.body[40]).to.have.property("albumId");
-      expect(response.body[40]).to.have.property("id");
-      expect(response.body[40]).to.have.property("title");
-      expect(response.body[40]).to.have.property("url");
-      expect(response.body[40]).to.have.property("thumbnailUrl");
+      expect(response.body[0]).to.have.property("albumId");
+      expect(response.body[0]).to.have.property("id");
+      expect(response.body[0]).to.have.property("title");
+      expect(response.body[0]).to.have.property("url");
+      expect(response.body[0]).to.have.property("thumbnailUrl");
     });
   });
 
-  it("Retorna uma foto específica", () => {
+  it("Returns a specific photo", () => {
     cy.api("GET", "/photos/1").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -129,21 +129,21 @@ describe("JSONPlaceholder Smoke Tests", () => {
     });
   });
 
-  it("Lista todas as tarefas", () => {
+  it("List all todos", () => {
     cy.api("GET", "/todos").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
       expect(response.body).to.not.be.null;
       expect(response.body).to.be.an("array");
       expect(response.body).to.have.length.above(1);
-      expect(response.body[50]).to.have.property("userId");
+      expect(response.body[0]).to.have.property("userId");
       expect(response.body[0]).to.have.property("id");
       expect(response.body[0]).to.have.property("title");
       expect(response.body[0]).to.have.property("completed");
     });
   });
 
-  it("Retorna uma tarefa específica", () => {
+  it("Returns a specific todo", () => {
     cy.api("GET", "/todos/1").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -156,7 +156,7 @@ describe("JSONPlaceholder Smoke Tests", () => {
     });
   });
 
-  it("Lista todos os usuários", () => {
+  it("List all users", () => {
     cy.api("GET", "/users").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -166,7 +166,7 @@ describe("JSONPlaceholder Smoke Tests", () => {
     });
   });
 
-  it("Retorna um usuário específico", () => {
+  it("Returns a specific user", () => {
     cy.api("GET", "/users/1").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -180,7 +180,7 @@ describe("JSONPlaceholder Smoke Tests", () => {
       expect(response.body).to.have.property("company");
     });
   });
-  it("Posts de um usuário específico", () => {
+  it("Posts from a specific user", () => {
     cy.api("GET", "/users/1/posts").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -190,7 +190,7 @@ describe("JSONPlaceholder Smoke Tests", () => {
       expect(response.body[0]).to.have.property("body");
     });
   });
-  it("Tarefas de um usuário específico", () => {
+  it("Todos from a specific user", () => {
     cy.api("GET", "/users/1/todos").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
@@ -201,7 +201,7 @@ describe("JSONPlaceholder Smoke Tests", () => {
       expect(response.body[0]).to.have.property("completed");
     });
   });
-  it("Álbuns de um usuário específico", () => {
+  it("Albums from a specific user", () => {
     cy.api("GET", "/users/1/albums").then((response) => {
       expect(response.status).to.equal(200);
       expect(response.duration).to.be.lessThan(2000);
