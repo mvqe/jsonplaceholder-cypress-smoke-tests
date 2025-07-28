@@ -42,7 +42,7 @@ describe("JSONPlaceholder API Smoke Tests", () => {
       expect(response.body).to.not.be.null;
       expect(response.body).to.be.an("array");
       expect(response.body).to.have.length.above(1);
-      expect(response.body[250]).to.have.property("postId");
+      expect(response.body[0]).to.have.property("postId");
     });
   });
 
@@ -209,6 +209,34 @@ describe("JSONPlaceholder API Smoke Tests", () => {
       expect(response.body[0]).to.have.property("userId");
       expect(response.body[0]).to.have.property("id");
       expect(response.body[0]).to.have.property("title");
+    });
+  });
+
+  //QUICK POST METHOD VERIFICATION
+  it("Creates a post", () => {
+    cy.api({
+      method: "POST",
+      url: "/posts/",
+      body: {
+        title: "POST method smoke test",
+        body: "testing",
+        userId: 1,
+      },
+    }).then((response) => {
+      expect(response.status).to.equal(201);
+      expect(response.duration).to.be.lessThan(2000);
+      expect(response.body).to.not.be.null;
+      expect(response.body).to.be.an("object");
+      expect(response.body).to.have.property("id");
+    });
+  });
+
+  //QUICK SIMULATED DELETE METHOD VERIFICATION
+  it("Deletes a post", () => {
+    cy.api("DELETE", "/posts/1").then((response) => {
+      expect(response.status).to.equal(200);
+      expect(response.duration).to.be.lessThan(2000);
+      expect(response.body).to.be.empty;
     });
   });
 });
