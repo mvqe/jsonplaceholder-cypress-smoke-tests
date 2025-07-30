@@ -62,7 +62,7 @@ Selecione o arquivo de testes desejado dentro da interface para executá-lo.
 ```
 📁 cypress
  └── 📁 e2e
-      └── jsonplaceholder.cy.js
+      └── JSONplaceholder-cypress-tests.cy.js
 📄 cypress.config.js
 📄 package.json
 ```
