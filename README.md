@@ -1,75 +1,88 @@
 # JSONPlaceholder Cypress Smoke Tests 🚀
 
-Projeto de testes automatizados com **Cypress**, utilizando a **API JSONPlaceholder** (https://jsonplaceholder.typicode.com/) como alvo, com foco em **Smoke Tests** para validação rápida e contínua dos principais endpoints.
+Automação de testes end-to-end com **Cypress**, focada em **Smoke Tests** para a [API JSONPlaceholder](https://jsonplaceholder.typicode.com/). Este projeto visa validar rapidamente os principais endpoints da API, garantindo disponibilidade e funcionamento básico.
 
-📌 **Pré-requisitos**
+## 📋 Sumário
 
-- Git
-- Node.js (v20.18.0) e npm (v10.8.2)
-- Visual Studio Code (v1.95.0) ou superior
-- Microsoft Edge ou outro navegador compatível
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Pré-requisitos](#pré-requisitos)
+- [Instalação](#instalação)
+- [Como Executar os Testes](#como-executar-os-testes)
+- [Testes Automatizados](#testes-automatizados)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
 
-_Recomenda-se Node.js v18.15.0 e npm 9.5.0 ou superiores._
+## Sobre o Projeto
 
-🚀 **Instalação**
+Este repositório demonstra automação de testes E2E utilizando Cypress para validar os principais endpoints da API JSONPlaceholder. O objetivo é garantir que os serviços essenciais estejam disponíveis para consumo, promovendo boas práticas de qualidade de software.
 
-1. Clone o repositório:
+## Pré-requisitos
 
-```
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/) (>=18.x recomendado)
+- [npm](https://www.npmjs.com/) (>=9.x recomendado)
+- [Visual Studio Code](https://code.visualstudio.com/) (>=1.95.0)
+- [Microsoft Edge](https://www.microsoft.com/edge) ou outro navegador compatível
+
+## Instalação
+
+Clone o repositório e instale as dependências:
+
+```sh
 git clone https://github.com/mvqe/jsonplaceholder-cypress-smoke-tests.git
-```
-
-2. Acesse a pasta do projeto:
-
-```
 cd jsonplaceholder-cypress-smoke-tests
-```
-
-3. Instale as dependências:
-
-```
 npm install
 ```
 
-✅ **Testes Smoke Automatizados**
+## Como Executar os Testes
 
-- **GET /posts** → Verifica se o endpoint retorna status `200 OK` e uma lista de posts.
-- **GET /posts/{id}** → Verifica se o endpoint retorna status `200 OK` e um post específico.
-- **GET /comments** → Verifica se o endpoint retorna status `200 OK` e uma lista de comentários.
-- **GET /users** → Verifica se o endpoint retorna status `200 OK` e uma lista de usuários.
-- **GET /users/{id}** → Verifica se o endpoint retorna status `200 OK` e um usuário específico.
+- **Modo headless (terminal):**
+  ```sh
+  npx cypress run
+  ```
+- **Modo interativo (GUI):**
+  ```sh
+  npx cypress open
+  ```
+  Selecione o arquivo de teste desejado na interface.
 
-Esses testes garantem que os principais serviços da API estão funcionando e disponíveis para consumo.
+## Testes Automatizados
 
-▶️ **Como executar os testes**
+- **GET /posts**: Verifica se retorna status `200 OK` e uma lista de posts.
+- **GET /posts/{id}**: Verifica se retorna status `200 OK` e um post específico.
+- **GET /comments**: Verifica se retorna status `200 OK` e uma lista de comentários.
+- **GET /users**: Verifica se retorna status `200 OK` e uma lista de usuários.
+- **GET /users/{id}**: Verifica se retorna status `200 OK` e um usuário específico.
 
-- Para rodar os testes no modo headless (linha de comando):
+Esses testes garantem que os principais serviços da API estão funcionando e disponíveis.
 
-```
-npx cypress run
-```
-
-- Para rodar no modo interativo (com interface gráfica):
-
-```
-npx cypress open
-```
-
-Selecione o arquivo de testes desejado dentro da interface para executá-lo.
-
-📄 **Estrutura do Projeto**
+## Estrutura do Projeto
 
 ```
-📁 cypress
- └── 📁 e2e
-      └── JSONplaceholder-cypress-tests.cy.js
-📄 cypress.config.js
-📄 package.json
+cypress/
+  e2e/
+    JSONplaceholder-cypress-tests.cy.js
+cypress.config.js
+package.json
 ```
 
-📌 **Observações**
+## Contribuição
 
-- Este projeto é **exclusivamente para fins educacionais e prática** com automação de testes de APIs usando Cypress.
-- A API **JSONPlaceholder** é pública, gratuita e não exige autenticação.
+Contribuições são bem-vindas! Siga os passos abaixo:
 
-💙 Feito com dedicação por [@mvqe](https://github.com/mvqe)
+1. Fork este repositório
+2. Crie uma branch (`git checkout -b feature/nova-feature`)
+3. Commit suas alterações (`git commit -m 'feat: nova feature'`)
+4. Push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
+
+## Licença
+
+Este projeto está sob licença [MIT](LICENSE).
+
+---
+
+> Projeto exclusivamente para fins educacionais e prática com automação de testes de APIs usando Cypress.
+
+Feito com 💙 por [@mvqe](https://github.com/mvqe)
