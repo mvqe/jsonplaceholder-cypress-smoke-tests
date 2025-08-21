@@ -49,11 +49,27 @@ npm install
 
 ## Testes Automatizados
 
-- **GET /posts**: Verifica se retorna status `200 OK` e uma lista de posts.
-- **GET /posts/{id}**: Verifica se retorna status `200 OK` e um post específico.
-- **GET /comments**: Verifica se retorna status `200 OK` e uma lista de comentários.
-- **GET /users**: Verifica se retorna status `200 OK` e uma lista de usuários.
-- **GET /users/{id}**: Verifica se retorna status `200 OK` e um usuário específico.
+## Testes Automatizados
+
+- **GET /posts**: Lista todos os posts.
+- **GET /posts/{id}**: Retorna um post específico.
+- **GET /posts/{id}/comments**: Retorna os comentários de um post específico.
+- **GET /comments**: Lista todos os comentários.
+- **GET /comments/{id}**: Retorna um comentário específico.
+- **GET /albums**: Lista todos os álbuns.
+- **GET /albums/{id}**: Retorna um álbum específico.
+- **GET /albums/{id}/photos**: Retorna as fotos de um álbum específico.
+- **GET /photos**: Lista todas as fotos.
+- **GET /photos/{id}**: Retorna uma foto específica.
+- **GET /todos**: Lista todas as tarefas.
+- **GET /todos/{id}**: Retorna uma tarefa específica.
+- **GET /users**: Lista todos os usuários.
+- **GET /users/{id}**: Retorna um usuário específico.
+- **GET /users/{id}/posts**: Retorna os posts de um usuário específico.
+- **GET /users/{id}/todos**: Retorna as tarefas de um usuário específico.
+- **GET /users/{id}/albums**: Retorna os álbuns de um usuário específico.
+- **POST /posts**: Cria um novo post (mock).
+- **DELETE /posts/{id}**: Deleta um post (mock).
 
 Esses testes garantem que os principais serviços da API estão funcionando e disponíveis.
 
