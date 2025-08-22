@@ -80,7 +80,6 @@ cypress/
   e2e/
     JSONplaceholder-cypress-tests.cy.js
 cypress.config.js
-package.json
 ```
 
 ## Contribuição
